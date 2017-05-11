@@ -128,6 +128,40 @@
     </entry>
     
     <entry>
+      <title><![CDATA[JVM]]></title>
+      <url>/2017/01/09/jvm/</url>
+      <content type="html"><![CDATA[<p>Java学习笔记<br><a id="more"></a>   </p>
+<h3 id="JVM体系结构"><a href="#JVM体系结构" class="headerlink" title="JVM体系结构"></a>JVM体系结构</h3><p>体系结构如下：<br><img src="E:\Wqian\My hexo theme\source\images\JVM体系结构.png" alt=""><br>1、垃圾回收器<br>又称gc：负责回收内存中无用的对象<br>2、类装载系统<br>用于操作编译好的.class文件<br>3、执行引擎<br>执行包在装载类的方法中的指令，即，指令<br>4、运行区数据<br>如图：虚拟机内存或者JVM内存，整个计算机内存中开辟一块内存存储jvm需要用到的对象，变量</p>
+<h3 id="JVM运行机制"><a href="#JVM运行机制" class="headerlink" title="JVM运行机制"></a>JVM运行机制</h3><p>  JVM(Java Vitual Machine)即，Java虚拟机，  </p>
+<h3 id="JVM运行时数据区"><a href="#JVM运行时数据区" class="headerlink" title="JVM运行时数据区"></a>JVM运行时数据区</h3><p>1.程序计数器<br>2.虚拟机栈<br>3.本地方法栈：<br>4.本地方法区：只执行native方法  </p>
+<h3 id="堆"><a href="#堆" class="headerlink" title="堆"></a>堆</h3><p>堆是jvm中最大的，应用的对象和数据都是存在这个区域。这块区域是线程共享的，也是gc主要的回收区，即java（gc（garbage collection））垃圾回收器<br>如果一个对象，没有一个引用指向它，就会被认为是一个垃圾。<br>被回收的场景：<br>1、对象被赋值null，或者手动释放   </p>
+<pre><code class="java">User u = <span class="keyword">new</span> User();
+...
+u = <span class="keyword">null</span>;
+</code></pre>
+<pre><code class="java">Bit m = Bit.create();  
+...  
+m.recycle();
+</code></pre>
+<p>2、弱引用<br>如果一个对象具有弱引用，在GC线程扫描内存区域的过程中，不管当前内存空间是否足够，都会回收内存，使用弱引用构建非敏感数据的缓存<br>引用对象类在包java.lang.ref下,其中包含三种显示的引用类型（即Reference类的三个子类）：SoftReference(强引用)、WeakReference、PhantomReference<br>弱引用声明：<br>WeakReference<br>3、虚引用<br>PhantomReference  </p>
+<h3 id="gc回收器"><a href="#gc回收器" class="headerlink" title="gc回收器"></a>gc回收器</h3><p>1) gc划分  </p>
+<ul>
+<li>新生代(频繁收集)：分为Eden(新生代出生)，survivor(出生后通过一次minor gc被survivor容纳)，其中survivor又分为from space和to space  </li>
+<li>旧生代(很少收集)：  </li>
+<li>永久域(基本不收集)：<br><code>minor gc</code>：在survivor中每一次minor gc age+1，当age&gt;阈值，晋升为老生代<br><code>full gc</code>：System.gc()进行full gc。 <h3 id="JVM调优实例"><a href="#JVM调优实例" class="headerlink" title="JVM调优实例"></a>JVM调优实例</h3></li>
+</ul>
+]]></content>
+      
+        
+        <tags>
+            
+            <tag> java </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[数据库]]></title>
       <url>/2017/01/09/%E6%95%B0%E6%8D%AE%E5%BA%93/</url>
       <content type="html"><![CDATA[<p>数据库初步学习<br><a id="more"></a>   </p>
