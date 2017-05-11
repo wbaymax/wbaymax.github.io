@@ -1,0 +1,683 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="C++," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="提高">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C++提高">
+<meta property="og:url" content="http://wbaymax.github.io/2017/01/01/C++提高/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="提高">
+<meta property="og:updated_time" content="2017-03-27T01:09:53.867Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="C++提高">
+<meta name="twitter:description" content="提高">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://wbaymax.github.io/2017/01/01/C++提高/"/>
+
+
+
+
+
+  <title> C++提高 | Hexo </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="">
+
+  
+
+
+
+
+
+
+
+
+  <div style="display: none;">
+    <script src="//s95.cnzz.com/z_stat.php?id=1261131962&web_id=1261131962" language="JavaScript"></script>
+  </div>
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Hexo</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Startseite
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archiv
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://wbaymax.github.io/2017/01/01/C++提高/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="WQ">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.png">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Hexo">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="Hexo" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                C++提高
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Veröffentlicht am</span>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-01-01T08:00:00+08:00">
+                2017-01-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <a href="/2017/01/01/C++提高/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/01/01/C++提高/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="提高"><a href="#提高" class="headerlink" title="提高"></a>提高</h3><a id="more"></a>  
+<h2 id="动态联编与静态联编"><a href="#动态联编与静态联编" class="headerlink" title="动态联编与静态联编"></a>动态联编与静态联编</h2><p>两者都是<strong> 多态 </strong> 的体现  </p>
+<ul>
+<li>静态联编(编译时的多态性)：通过函数、运算符重载实现，系统根据形参的个数实现编译的多态性  </li>
+<li>动态联编（运行时的多态性）：通过继承、虚函数（运行时才能实现对象与函数的联编）C++规定动态联编是在虚函数支持下实现的<br><code>条件:</code> 指向派生类对象的基类指针或者引用派生类对象的基类引用（调用虚函数）<br>动态联编需要通过对象指针或对象引用操作虚函数<br>静态联编采用对象操作虚函数  </li>
+</ul>
+<h2 id="虚函数"><a href="#虚函数" class="headerlink" title="虚函数  "></a>虚函数  </h2><p>如果成员函数被说明为虚函数，则该成员函数在派生类中可能有不同的实现  </p>
+<h2 id="类模板"><a href="#类模板" class="headerlink" title="类模板"></a>类模板</h2><p>定义格式：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">template</span> &lt;模板参数表&gt;  </div><div class="line"><span class="keyword">class</span> &lt;类名 &gt;  </div><div class="line">&#123;</div><div class="line">  &lt;类体说明&gt;</div><div class="line">&#125;;</div><div class="line">```  </div><div class="line">## 复制构造函数##  </div><div class="line"></div><div class="line">## 深拷贝 浅拷贝 ##  </div><div class="line"> 深拷贝：一个类拥有资源（堆或者其他系统资源），当这个类的对象发生复制过程时，资源重新分配的过程。增加指针，申请内存并指向新的内存  </div><div class="line"> 浅拷贝：对象存在资源，但复制过程并未复制资源的情况。只是增加指针指向已存在的内存，在释放资源时会产生重复释放同一内存，产生资源归属不清的情况，导致程序错误  </div><div class="line"> ## 类成员变量初始化顺序##  </div><div class="line"> 类的成员变量初始化顺序跟变量在内存中的次序有关，在编译期根据变量的定义顺序决定的，只与变量在类中的声明顺序有关，与初始化列表的顺序无关。  </div><div class="line">变量的初始化顺序如下：  </div><div class="line">- 基类的静态变量或全局变量  </div><div class="line">- 派生类的静态变量或全局变量  </div><div class="line">- 基类的成员变量  </div><div class="line">- 派生类的成员变量  </div><div class="line"></div><div class="line">## 继承 ##  </div><div class="line">单继承：<span class="keyword">class</span> &lt;派生类名&gt;:&lt;继承方式&gt;&lt;基类名&gt;  </div><div class="line">多继承：<span class="keyword">class</span> &lt;派生类名&gt;:&lt;继承方式<span class="number">1</span>&gt;&lt;基类名<span class="number">1</span>&gt;,&lt;继承方式<span class="number">2</span>&gt;&lt;基类名<span class="number">2</span>&gt;...</div><div class="line">### 派生类的三种继承方式###</div><div class="line">- <span class="keyword">public</span>继承：基类的公有成员和保护成员作为派生类的成员都保持原有访问权限，基类私有成员在派生类中不可见  </div><div class="line">- <span class="keyword">private</span>继承：基类的公有成员和保护成员作为派生类的**私有**成员，不能被派生类的**子类**访问  </div><div class="line">- protect继承：基类的公有成员和保护成员作为派生类的**保护**成员，只能被派生类成员函数或友元访问，不能被派生类的对象访问  </div><div class="line"></div><div class="line">### 类创建对象 ###  </div><div class="line">创建对象的过程为类的`实例化` ，每个对象都是类的实例，  </div><div class="line">```C++  </div><div class="line">Object a;<span class="comment">//默认构造函数创建对象</span></div><div class="line"><span class="function">Object <span class="title">b</span><span class="params">(<span class="number">2</span>)</span></span>;<span class="comment">//栈中分配</span></div><div class="line">Object c[<span class="number">3</span>];<span class="comment">//默认构造函数</span></div><div class="line">Object &amp;ra = b;<span class="comment">//不创建对象</span></div><div class="line">Object d = b;<span class="comment">//不创建对象</span></div><div class="line">Object *pA = c;<span class="comment">//不创建对象</span></div><div class="line">Object *p = <span class="keyword">new</span> Object(<span class="number">4</span>);<span class="comment">//调用含参构造函数创建，堆中分配  </span></div><div class="line">```  </div><div class="line">### 对象的内存结构 ###  </div><div class="line"></div><div class="line">## 查看内存泄露##  </div><div class="line"></div><div class="line">## 柔性数组##  </div><div class="line">只是一个在<span class="keyword">struct</span>结构里的标识占位符（不占结构<span class="keyword">struct</span>的空间），只能放在结构体末尾，申明一个长度为<span class="number">0</span>的数组，是这个结构体是可变长的，长度为<span class="number">0</span>的数组不占用空间，因为数组名本身不占用空间，只是偏移量，代表不可修改的地址常量。  </div><div class="line"></div><div class="line">## 单例模式##     </div><div class="line">存在这样特点的类：  </div><div class="line">- 这些类只能有一个实例  </div><div class="line">- 能够自动实例化  </div><div class="line">- 对整个系统可见  </div><div class="line">`例：` Windows的任务管理器、回收站、网站计数器、应用程序的日志应用、数据库连接池、操作系统的文件系统  </div><div class="line">单例模式的应用场景发生条件：  </div><div class="line">- 资源共享：避免由于资源操作时导致的性能或损耗。如：日志文件，应用配置。  </div><div class="line">- 控制资源：方便资源间互相通信。如：线程池。  </div><div class="line"></div><div class="line">#<span class="meta"># char与string##  </span></div><div class="line"><span class="number">1.</span> ** <span class="keyword">const</span> <span class="keyword">char</span>\* 和<span class="built_in">string</span> 转换**  </div><div class="line">(<span class="number">1</span>) <span class="keyword">const</span> <span class="keyword">char</span>*转换为 <span class="built_in">string</span>，直接赋值即可。</div><div class="line">     EX:  </div><div class="line">     ```C++  </div><div class="line">      <span class="keyword">const</span> <span class="keyword">char</span>* tmp = <span class="string">"tsinghua"</span>.</div><div class="line">      <span class="built_in">string</span> s = tmp;</div></pre></td></tr></table></figure></p>
+<p>(2) string转换为const char*，利用c_str()。<br>    EX:<br>    <figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">string</span> s = <span class="string">"tsinghua"</span>;</div><div class="line"><span class="keyword">const</span> <span class="keyword">char</span>*tmp = s.c_str();</div></pre></td></tr></table></figure></p>
+<ol>
+<li><strong> char* 和 const char* 之间的转换</strong><br>(1) const char<em>转化为char</em>，利用const_cast<char*>。<br>  EX:    <figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> <span class="keyword">char</span>* tmp = <span class="string">"tsinghua"</span>;</div><div class="line"><span class="keyword">char</span>* p = <span class="keyword">const_cast</span>&lt;<span class="keyword">char</span>*&gt;(tmp);</div></pre></td></tr></table></figure>
+</char*></li>
+</ol>
+<p>(2) char*转化为const char*，直接赋值即可。<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">char</span>* p = <span class="string">"tsinghua"</span>.</div><div class="line"><span class="keyword">const</span> <span class="keyword">char</span>* tmp = p;</div></pre></td></tr></table></figure></p>
+<ol>
+<li><strong> char* 和string之间的转换</strong><br>有了1和2的基础，char*和string转化就很简单了。<br>(1)char*转化为string，直接赋值即可。<br>  EX:     <figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">char</span>* p = <span class="string">"tsinghua"</span>.</div><div class="line"><span class="built_in">string</span> str = p;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>(2)string转化为char*，走两步，先是string-&gt;const char*，然后是const char*-&gt;char*<br>     EX:  </p>
+<pre><code>```C++  
+string str = &quot;tsinghua&quot;;
+char* p = const_cast&lt;char*&gt;(str.c_str());  
+```  
+</code></pre><h2 id="位域"><a href="#位域" class="headerlink" title="位域"></a>位域</h2><h2 id="物理结构与逻辑结构"><a href="#物理结构与逻辑结构" class="headerlink" title="物理结构与逻辑结构"></a>物理结构与逻辑结构</h2><ul>
+<li>物理结构：数据结构在计算机中的表示(又称映像或存储结构)，研究的是数据结构在计算机中的实现方法，包括数据结构中元素的表示及元素间关系的表示。存储结构分为顺序存储和链式存储  </li>
+<li>逻辑结构：数据元素之间的逻辑关系称为数据的逻辑结构，可以看做从具体问题抽象出来的数学模型，与数据的存储无关  </li>
+</ul>
+<h2 id="this指针"><a href="#this指针" class="headerlink" title="this指针"></a>this指针</h2><p>类中的非静态函数默认含有this指针，表明为该类的对象所有，静态对象不属于任何类的对象，没有this指针，由类直接调用。非类中函数不具有指针</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/C/" rel="tag"># C++</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/01/01/计算机网络/" rel="next" title="计算机网络">
+                <i class="fa fa-chevron-left"></i> 计算机网络
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/01/09/Markdown/" rel="prev" title="Markdown初体验">
+                Markdown初体验 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2017/01/01/C++提高/"
+           data-title="C++提高" data-url="http://wbaymax.github.io/2017/01/01/C++提高/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview sidebar-panel sidebar-panel-active">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.png"
+               alt="WQ" />
+          <p class="site-author-name" itemprop="name">WQ</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">8</span>
+              <span class="site-state-item-name">Artikel</span>
+            </a>
+          </div>
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">Tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/wbaymax" target="_blank" title="Github">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  Github
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">WQ</span>
+</div>
+
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1261131962'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/z_stat.php%3Fid%3D1261131962%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));</script>
+
+
+<div class="powered-by">
+  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"wbaymax"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+
+</body>
+</html>
