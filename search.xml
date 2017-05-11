@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search> 
+  
+    
+    <entry>
+      <title><![CDATA[写在第一篇]]></title>
+      <url>/2017/01/09/%E5%86%99%E5%9C%A8%E7%AC%AC%E4%B8%80%E7%AF%87/</url>
+      <content type="html"><![CDATA[<h2 id="happy-coding"><a href="#happy-coding" class="headerlink" title="happy coding"></a>happy coding</h2><a id="more"></a>
+<pre><code>hello world
+</code></pre>]]></content>
+      
+        
+        <tags>
+            
+            <tag> test </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Linux浅学习]]></title>
+      <url>/2017/01/09/Linux/</url>
+      <content type="html"><![CDATA[<p>Linux学习笔记<br><a id="more"></a>  </p>
+<h2 id="Linux常用命令"><a href="#Linux常用命令" class="headerlink" title="Linux常用命令"></a>Linux常用命令</h2><ul>
+<li><strong> grep：</strong>  </li>
+<li><strong> crontab：</strong><br>Linux下用来周期性执行某种任务或等待处理某些事件的一个守护进程，与Windows下的计划任务类似，<br>crontab文件由6个域组成，每个域之间用空格分隔，排列方式为  MIN HOUR DAY MONTH DAYOFWEEK COMMAND</li>
+<li><strong> lp：</strong>  </li>
+<li><strong> find：</strong>  </li>
+<li><strong> xdm:</strong>  </li>
+<li><strong> mkdir：</strong> -p(–parents) 创建新目录时，父目录不存在时先创建父目录<br> -m (或–mode) 创建新目录同时设置目录权限<br>例：在目录<code>/usr</code>下建立子目录test，并且只有文件所有者有读、写、执行，其他用户无权访问  <pre><code class="Linux">mkdir -m 700 /usr/test
+</code></pre>
+例：在当前目录建立bin以及bin下的子目录test，权限设置为文件所有者有读、写、执行，同组用户可读、执行，其他用户无权访问  <pre><code class="Linux">mkdir -p-m 750 /bin/test
+</code></pre>
+</li>
+<li><strong> chmod</strong></li>
+</ul>
+<h2 id="Linux文件系统"><a href="#Linux文件系统" class="headerlink" title="Linux文件系统"></a>Linux文件系统</h2><h3 id="文件系统"><a href="#文件系统" class="headerlink" title="文件系统"></a>文件系统</h3><p><img src="E:\Wqian\My hexo theme\source\images\Linux文件系统.png" alt="">  </p>
+<h3 id="文件目录"><a href="#文件目录" class="headerlink" title="文件目录"></a>文件目录</h3><p>/ : 根目录<br>/bin : 基础系统需要的基础命令，如：ls、cp、mkdir等命令，功能与/usr/bin类似，这个目录的文件都是可执行的，普通用户都可以使用的命令。<br>/boot : Linux的内核及引导系统程序所需要的文件，比如GRUB或LILO系统引导管理器，启动装载文件的存放位置，一般是个独立的分区。<br>/dev : 一些必要的设备、声卡、磁盘，如：/dev/null，/dev/full，/dev/zero<br>/etc : 存放系统的配置文件，一些服务器的配置文件：如用户账号及密码配置文件；  </p>
+<pre><code>&gt;/etc/opt:/opt对应的配置文件  
+/etc/X11:Xwindows系统配置文件
+/etc/xml:XML配置文件……  
+</code></pre><p>/home ：用户工作目录，和个人配置文件，如个人环境变量等，所有的账号分配一个工作目录。一般是一个独立的分区。<br>/lib ：库文件存放地。bin和sbin需要的库文件。类似windows的DLL。<br>/media : 可拆卸的媒介挂载点，如CD-ROMs、移动硬盘、U盘，系统默认会挂载到这里来。<br>/mnt :临时挂载文件系统。这个目录一般是用于存放挂载储存设备的挂载目录的，比如有cdrom 等目录。可以参看/etc/fstab的定义。<br>/opt :可选的应用程序包。<br>/proc :操作系统运行时，进程（正在运行中的程序）信息及内核信息（比如cpu、硬盘分区、内存信息等）存放在这里。/proc目录伪装的文件系统proc的挂载目录，proc并不是真正的文件系统，它的定义可以参见 /etc/fstab 。<br>/root :Root用户的工作目录<br>/sbin :和bin类似，是一些可执行文件，不过不是所有用户都需要的，一般是系统管理所需要使用得到的。<br>/tmp :系统的临时文件，一般系统重启不会被保存。<br>/usr :包含了系统用户工具和程序。  </p>
+<pre><code>&gt;/usr/bin：非必须的普通用户可执行命令  
+/usr/include：标准头文件  
+/usr/lib: /usr/bin/ 和 /usr/sbin/的库文件  
+/usr/sbin: 非必须的可执行文件  
+/usr/src : 内核源码  
+/usr/X11R6: X Window System, Version 11, Release 6.  
+</code></pre><p>/srv：该目录存放一些服务启动之后需要提取的数据  </p>
+<h2 id="Linux进程内存空间分段"><a href="#Linux进程内存空间分段" class="headerlink" title="Linux进程内存空间分段"></a>Linux进程内存空间分段</h2><p>Text（代码区）：存放可执行的指令操作，其只读不能写；<br>Bss（静态区or全局区）：存放未初始化的全局变量和静态变量，可读写，在程序执行之前BSS段会自动清0；<br>Data（数据区）：存放初始化的全局变量和静态变量，属于静态内存分配；<br>Stack：存放程序创建的局部，不包括static声明的变量，static意味着在数据段中存放变量，函数参数等；<br>Heap：存放new/malloc等动态申请的变量，用户必须手动进行delete/free操作。<br>其中Stack和Heap的内存增长方向是相反的，可以把堆栈看成一个寄存、交换临时数据的内存区。  </p>
+<h2 id="Linux文件权限"><a href="#Linux文件权限" class="headerlink" title="Linux文件权限"></a>Linux文件权限</h2><p>第2~10个字符中每三位一组，<br>文件类型(1位)+所有者权限(3位)+与所有者同一组的用户的权限(3位)+其他用户的权限(3位)；代表意义如下：<br>r(Read,读取)：对文件而言，具有读取文件内容的权限；对目录来说，具有浏览目录的权限<br>w(Write，写入)：对文件而言，具有新增、修改文件内容的权限；对目录来说，具有删除、移动目录内文件的权限<br>x(eXecute，执行)：对文件而言，具有执行文件的权限；对目录来说，该用户具有进入目录的权限<br><strong>-</strong>：表示不具有该项权限。<br><strong> chmod</strong>：文件/目录权限设置命令，<br>文件和目录的权限表示，是用r,w,x这三个字符来代表所有者、用户组和其他用户的权限。也可用数字来表示权限。  </p>
+<ul>
+<li>r: 对应数值4</li>
+<li>w: 对应数值2</li>
+<li>x：对应数值1</li>
+<li>－：对应数值0  </li>
+</ul>
+<p>将rwx看成二进制数，如果有则有1表示，没有则有0表示，然后每三位转换成十进制<br>-rw——- (110 000 000)(600) – 只有属主有读写权限。<br>-rw-r–r– (110 100 100)(644) – 只有属主有读写权限；而属组用户和其他用户只有读权限。<br>-rwx—— (700) – 只有属主有读、写、执行权限。<br>-rwxr-xr-x (755) – 属主有读、写、执行权限；而属组用户和其他用户只有读、执行权限。<br>-rwx–x–x (711) – 属主有读、写、执行权限；而属组用户和其他用户只有执行权限。<br>-rw-rw-rw- (666) – 所有用户都有文件读、写权限。这种做法不可取。<br>-rwxrwxrwx (777) – 所有用户都有读、写、执行权限。更不可取的做法。<br>以下是对目录的两个普通设定:<br>drwx—— (700) - 只有属主可在目录中读、写。<br>drwxr-xr-x (755) - 所有用户可读该目录，但只有属主才能改变目录中的内容。</p>
+<p>http有三个端口：80端口(默认访问端口) 8080端口 443端口(ssl加密)<br>www端口：80<br>ftp端口： 两种模式：  </p>
+<ul>
+<li>主动(port)模式：两个端口相对固定，命令端口为n，数据端口为n-1，命令端口20，数据端口21  </li>
+<li>被动(pasv)模式：默认情况下命令端口是21，但是数据端口是随机的</li>
+</ul>
+<h2 id="调用外部函数库"><a href="#调用外部函数库" class="headerlink" title="调用外部函数库"></a>调用外部函数库</h2><p>加人链接的函数库  </p>
+<ul>
+<li>编译时加入额外函数库链接的方式  </li>
+</ul>
+<pre><code class="Linux">gcc  额外函数库.c -lm -L/lib -L/usr/lib  
+./a.out
+</code></pre>
+<p><strong>-lm： </strong>分为两部分：<strong>-l</strong> 加入某个函数库(library)的意思；<strong>m </strong>是libm.so函数库<br>定义要读取的include文件放置的目录  </p>
+<pre><code class="Linux">gcc  额外函数库.c -lm -I/path
+</code></pre>
+<p>path设置要搜索相关的include文件的目录  </p>
+<h2 id="inode"><a href="#inode" class="headerlink" title="inode"></a>inode</h2><p>存储文件的元信息（如：文件创建者、文件创建日期、文件大小等）的区域叫inode（索引节点）。可以用stat命令查看inode信息：</p>
+<pre><code class="Linux">stat example.txt
+</code></pre>
+<h3 id="inode的内容："><a href="#inode的内容：" class="headerlink" title="inode的内容："></a>inode的内容：</h3><ul>
+<li>文件的字节数</li>
+<li>文件拥有者的User ID</li>
+<li>文件的Group ID</li>
+<li>文件的读、写、执行权限</li>
+<li>文件的时间戳，共有三个：ctime指inode上一次变动的时间，mtime指文件内容上一次变动的时间，atime指文件上一次打开的时间。</li>
+<li>链接数，即有多少文件名指向这个inode</li>
+<li>文件数据block的位置</li>
+</ul>
+<h2 id="gcc建议用法-编译、参数、链接"><a href="#gcc建议用法-编译、参数、链接" class="headerlink" title="gcc建议用法(编译、参数、链接)"></a>gcc建议用法(编译、参数、链接)</h2><h2 id="make进行宏编译"><a href="#make进行宏编译" class="headerlink" title="make进行宏编译"></a>make进行宏编译</h2><h3 id="makefile的基本语法与变量"><a href="#makefile的基本语法与变量" class="headerlink" title="- makefile的基本语法与变量"></a>- makefile的基本语法与变量</h3>]]></content>
+      
+        
+        <tags>
+            
+            <tag> Linux </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Markdown初体验]]></title>
+      <url>/2017/01/09/Markdown/</url>
+      <content type="html"><![CDATA[<p>初识markdown<br><a id="more"></a>  </p>
+<h1 id="标题1"><a href="#标题1" class="headerlink" title="标题1  "></a>标题1  </h1><h2 id="标题2"><a href="#标题2" class="headerlink" title="标题2"></a>标题2</h2><h2 id="大标题"><a href="#大标题" class="headerlink" title="大标题"></a>大标题</h2><h3 id="小标题"><a href="#小标题" class="headerlink" title="小标题"></a>小标题</h3><p><em>斜体文本</em>      <em>斜体文本</em>  </p>
+<p><strong>粗体文本</strong>  <strong>粗体文本</strong>  </p>
+<p><strong><em>粗斜体</em></strong>  <strong><em>粗斜体</em></strong></p>
+<h3 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h3><p>常用链接</p>
+<ul>
+<li>文字链接 <a href="http://" target="_blank" rel="external">文字链接</a></li>
+<li>网址链接 <a href="http://" target="_blank" rel="external">http://</a>  </li>
+</ul>
+<p>高级链接  : 用作网址变量，文章末尾为变量赋值<br><a href="http://www.google.com/" target="_blank" rel="external">google</a><br><a href="https://en.wikipedia.org/wiki/Wiki" target="_blank" rel="external">维基百科</a></p>
+<h2 id="引用："><a href="#引用：" class="headerlink" title="引用："></a>引用：</h2><blockquote>
+<p>引用文本  </p>
+</blockquote>
+<p>  结束引用插入空白行<br>分隔符  </p>
+<h2 id="前面的段落"><a href="#前面的段落" class="headerlink" title="前面的段落"></a>前面的段落</h2><p>后面的段落<br>代码块</p>
+<p>这是<code>C++</code>代码:<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">int</span> a = <span class="number">0</span></div></pre></td></tr></table></figure></p>
+<hr>
+<h2 id="略高级"><a href="#略高级" class="headerlink" title="略高级"></a>略高级</h2><p>若描述中需要用到 markdown 的符号，比如<code>#</code> <code>*</code>  <code>_</code>  但又不想它被转义,可在前面加反斜杠，如：<code>\#</code> <code>\*</code> <code>\_</code><br><code>例:</code> <em>斜#体</em>  </p>
+<h2 id="插入图片"><a href="#插入图片" class="headerlink" title="插入图片"></a>插入图片</h2><p><img src="E:\Wqian\My hexo theme\source\images\我是图片.png" alt="">  </p>
+<h2 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h2><p>&lt;| 表格     | Header Two     |<br>| :————- | :————- |<br>| Item One       | Item Two       |&gt;  </p>
+<p><table><br>        <tr><br>            <th>表格</th><br>            <th>我是表格</th><br>        </tr><br></table></p>
+<h2 id="公式"><a href="#公式" class="headerlink" title="公式"></a>公式</h2><p><code>行间公式</code> 可以用 <code>$$</code> 包裹 TeX 或 LaTeX 格式的数学公式来实现<br><code>例：</code><br>$$ x=\frac{-b\pm\sqrt{b^2-4ac}}{2a} $$<br>$$ x=\frac{-b\pm\sqrt{b^2-4ac}}{2a} $$  </p>
+<p><code>行内公式</code> 可以用 <code>\(公式\)</code> 包裹 TeX 或 LaTeX 格式的数学公式<br><code>例：</code><br>\(x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}\)</p>
+]]></content>
+      
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[数据库]]></title>
+      <url>/2017/01/09/%E6%95%B0%E6%8D%AE%E5%BA%93/</url>
+      <content type="html"><![CDATA[<p>数据库初步学习<br><a id="more"></a>   </p>
+<h2 id="内连接与外连接"><a href="#内连接与外连接" class="headerlink" title="内连接与外连接"></a>内连接与外连接</h2><p>内连接：也称自然连接，结果集为两个表所有相匹配的数据。内连接会造成信息的丢失。<br>外连接：包含，符合连接条件的行、左表（左外连接）、右表（右外连接）、两个边接表（全外连接），<br>即，只限制其中一个表的行</p>
+]]></content>
+      
+        
+        <tags>
+            
+            <tag> database </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[C++提高]]></title>
+      <url>/2017/01/01/C++%E6%8F%90%E9%AB%98/</url>
+      <content type="html"><![CDATA[<h3 id="提高"><a href="#提高" class="headerlink" title="提高"></a>提高</h3><a id="more"></a>  
+<h2 id="动态联编与静态联编"><a href="#动态联编与静态联编" class="headerlink" title="动态联编与静态联编"></a>动态联编与静态联编</h2><p>两者都是<strong> 多态 </strong> 的体现  </p>
+<ul>
+<li>静态联编(编译时的多态性)：通过函数、运算符重载实现，系统根据形参的个数实现编译的多态性  </li>
+<li>动态联编（运行时的多态性）：通过继承、虚函数（运行时才能实现对象与函数的联编）C++规定动态联编是在虚函数支持下实现的<br><code>条件:</code> 指向派生类对象的基类指针或者引用派生类对象的基类引用（调用虚函数）<br>动态联编需要通过对象指针或对象引用操作虚函数<br>静态联编采用对象操作虚函数  </li>
+</ul>
+<h2 id="虚函数"><a href="#虚函数" class="headerlink" title="虚函数  "></a>虚函数  </h2><p>如果成员函数被说明为虚函数，则该成员函数在派生类中可能有不同的实现  </p>
+<h2 id="类模板"><a href="#类模板" class="headerlink" title="类模板"></a>类模板</h2><p>定义格式：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">template</span> &lt;模板参数表&gt;  </div><div class="line"><span class="keyword">class</span> &lt;类名 &gt;  </div><div class="line">&#123;</div><div class="line">  &lt;类体说明&gt;</div><div class="line">&#125;;</div><div class="line">```  </div><div class="line">## 复制构造函数##  </div><div class="line"></div><div class="line">## 深拷贝 浅拷贝 ##  </div><div class="line"> 深拷贝：一个类拥有资源（堆或者其他系统资源），当这个类的对象发生复制过程时，资源重新分配的过程。增加指针，申请内存并指向新的内存  </div><div class="line"> 浅拷贝：对象存在资源，但复制过程并未复制资源的情况。只是增加指针指向已存在的内存，在释放资源时会产生重复释放同一内存，产生资源归属不清的情况，导致程序错误  </div><div class="line"> ## 类成员变量初始化顺序##  </div><div class="line"> 类的成员变量初始化顺序跟变量在内存中的次序有关，在编译期根据变量的定义顺序决定的，只与变量在类中的声明顺序有关，与初始化列表的顺序无关。  </div><div class="line">变量的初始化顺序如下：  </div><div class="line">- 基类的静态变量或全局变量  </div><div class="line">- 派生类的静态变量或全局变量  </div><div class="line">- 基类的成员变量  </div><div class="line">- 派生类的成员变量  </div><div class="line"></div><div class="line">## 继承 ##  </div><div class="line">单继承：<span class="keyword">class</span> &lt;派生类名&gt;:&lt;继承方式&gt;&lt;基类名&gt;  </div><div class="line">多继承：<span class="keyword">class</span> &lt;派生类名&gt;:&lt;继承方式<span class="number">1</span>&gt;&lt;基类名<span class="number">1</span>&gt;,&lt;继承方式<span class="number">2</span>&gt;&lt;基类名<span class="number">2</span>&gt;...</div><div class="line">### 派生类的三种继承方式###</div><div class="line">- <span class="keyword">public</span>继承：基类的公有成员和保护成员作为派生类的成员都保持原有访问权限，基类私有成员在派生类中不可见  </div><div class="line">- <span class="keyword">private</span>继承：基类的公有成员和保护成员作为派生类的**私有**成员，不能被派生类的**子类**访问  </div><div class="line">- protect继承：基类的公有成员和保护成员作为派生类的**保护**成员，只能被派生类成员函数或友元访问，不能被派生类的对象访问  </div><div class="line"></div><div class="line">### 类创建对象 ###  </div><div class="line">创建对象的过程为类的`实例化` ，每个对象都是类的实例，  </div><div class="line">```C++  </div><div class="line">Object a;<span class="comment">//默认构造函数创建对象</span></div><div class="line"><span class="function">Object <span class="title">b</span><span class="params">(<span class="number">2</span>)</span></span>;<span class="comment">//栈中分配</span></div><div class="line">Object c[<span class="number">3</span>];<span class="comment">//默认构造函数</span></div><div class="line">Object &amp;ra = b;<span class="comment">//不创建对象</span></div><div class="line">Object d = b;<span class="comment">//不创建对象</span></div><div class="line">Object *pA = c;<span class="comment">//不创建对象</span></div><div class="line">Object *p = <span class="keyword">new</span> Object(<span class="number">4</span>);<span class="comment">//调用含参构造函数创建，堆中分配  </span></div><div class="line">```  </div><div class="line">### 对象的内存结构 ###  </div><div class="line"></div><div class="line">## 查看内存泄露##  </div><div class="line"></div><div class="line">## 柔性数组##  </div><div class="line">只是一个在<span class="keyword">struct</span>结构里的标识占位符（不占结构<span class="keyword">struct</span>的空间），只能放在结构体末尾，申明一个长度为<span class="number">0</span>的数组，是这个结构体是可变长的，长度为<span class="number">0</span>的数组不占用空间，因为数组名本身不占用空间，只是偏移量，代表不可修改的地址常量。  </div><div class="line"></div><div class="line">## 单例模式##     </div><div class="line">存在这样特点的类：  </div><div class="line">- 这些类只能有一个实例  </div><div class="line">- 能够自动实例化  </div><div class="line">- 对整个系统可见  </div><div class="line">`例：` Windows的任务管理器、回收站、网站计数器、应用程序的日志应用、数据库连接池、操作系统的文件系统  </div><div class="line">单例模式的应用场景发生条件：  </div><div class="line">- 资源共享：避免由于资源操作时导致的性能或损耗。如：日志文件，应用配置。  </div><div class="line">- 控制资源：方便资源间互相通信。如：线程池。  </div><div class="line"></div><div class="line">#<span class="meta"># char与string##  </span></div><div class="line"><span class="number">1.</span> ** <span class="keyword">const</span> <span class="keyword">char</span>\* 和<span class="built_in">string</span> 转换**  </div><div class="line">(<span class="number">1</span>) <span class="keyword">const</span> <span class="keyword">char</span>*转换为 <span class="built_in">string</span>，直接赋值即可。</div><div class="line">     EX:  </div><div class="line">     ```C++  </div><div class="line">      <span class="keyword">const</span> <span class="keyword">char</span>* tmp = <span class="string">"tsinghua"</span>.</div><div class="line">      <span class="built_in">string</span> s = tmp;</div></pre></td></tr></table></figure></p>
+<p>(2) string转换为const char*，利用c_str()。<br>    EX:<br>    <figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">string</span> s = <span class="string">"tsinghua"</span>;</div><div class="line"><span class="keyword">const</span> <span class="keyword">char</span>*tmp = s.c_str();</div></pre></td></tr></table></figure></p>
+<ol>
+<li><strong> char* 和 const char* 之间的转换</strong><br>(1) const char<em>转化为char</em>，利用const_cast<char*>。<br>  EX:    <figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> <span class="keyword">char</span>* tmp = <span class="string">"tsinghua"</span>;</div><div class="line"><span class="keyword">char</span>* p = <span class="keyword">const_cast</span>&lt;<span class="keyword">char</span>*&gt;(tmp);</div></pre></td></tr></table></figure>
+</char*></li>
+</ol>
+<p>(2) char*转化为const char*，直接赋值即可。<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">char</span>* p = <span class="string">"tsinghua"</span>.</div><div class="line"><span class="keyword">const</span> <span class="keyword">char</span>* tmp = p;</div></pre></td></tr></table></figure></p>
+<ol>
+<li><strong> char* 和string之间的转换</strong><br>有了1和2的基础，char*和string转化就很简单了。<br>(1)char*转化为string，直接赋值即可。<br>  EX:     <figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">char</span>* p = <span class="string">"tsinghua"</span>.</div><div class="line"><span class="built_in">string</span> str = p;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>(2)string转化为char*，走两步，先是string-&gt;const char*，然后是const char*-&gt;char*<br>     EX:  </p>
+<pre><code>```C++  
+string str = &quot;tsinghua&quot;;
+char* p = const_cast&lt;char*&gt;(str.c_str());  
+```  
+</code></pre><h2 id="位域"><a href="#位域" class="headerlink" title="位域"></a>位域</h2><h2 id="物理结构与逻辑结构"><a href="#物理结构与逻辑结构" class="headerlink" title="物理结构与逻辑结构"></a>物理结构与逻辑结构</h2><ul>
+<li>物理结构：数据结构在计算机中的表示(又称映像或存储结构)，研究的是数据结构在计算机中的实现方法，包括数据结构中元素的表示及元素间关系的表示。存储结构分为顺序存储和链式存储  </li>
+<li>逻辑结构：数据元素之间的逻辑关系称为数据的逻辑结构，可以看做从具体问题抽象出来的数学模型，与数据的存储无关  </li>
+</ul>
+<h2 id="this指针"><a href="#this指针" class="headerlink" title="this指针"></a>this指针</h2><p>类中的非静态函数默认含有this指针，表明为该类的对象所有，静态对象不属于任何类的对象，没有this指针，由类直接调用。非类中函数不具有指针</p>
+]]></content>
+      
+        
+        <tags>
+            
+            <tag> C++ </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[计算机网络]]></title>
+      <url>/2017/01/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/</url>
+      <content type="html"><![CDATA[<p>总结<br><a id="more"></a>  </p>
+<h2 id="内存页面置换算法"><a href="#内存页面置换算法" class="headerlink" title="内存页面置换算法  "></a>内存页面置换算法  </h2><ul>
+<li><strong> 最佳置换算法</strong>（<strong> OPT</strong>）<br>选择淘汰以后永不使用的，或者在长时间内不再被访问的页面，这样可以保证获得最低的缺页率，<br>由于无法预知进程在内存下的若干页面中哪个是未来最长时间内不再被访问的，因而该算法无法实现。</li>
+<li><strong> 先入先出法</strong> （<strong> FIFO</strong>）<br>优先淘汰最早进入内存的页面，即在内存中驻留时间最久的页面（基于队列实现）<br>只在按线性顺序访问地址空间时才是理想的，否则效率不高。  </li>
+<li><strong> 最久未使用算法</strong>（<strong> LRU</strong>）<br>选择最近最长时间未访问过的页面予以淘汰，即在过去一段时间内未访问过的页面在最近的将来可能也不会被访问。<br>性能较好，但需要寄存器和栈的硬件支持（是堆栈类算法）  </li>
+<li><strong> 最少使用算法</strong>（<strong> NRU</strong>）<br>对FIFO的改进，避免把经常使用的页面置换出去  </li>
+</ul>
+<h2 id="计算机网络体系结构"><a href="#计算机网络体系结构" class="headerlink" title="计算机网络体系结构  "></a>计算机网络体系结构  </h2><ul>
+<li><strong> OSI七层体系结构 </strong> （概念清楚，理论完整，复杂不实用）<br>1.物理层：IEEE<br>2.数据链路层：FDDI，Ethernet，Arpanet，PDN<br>3.网络层：IP，ICMP<br>4.运输层：TCP、UDP<br>5.会话层：SMTP、DNS<br>6.表示层：TELNET、SNMP<br>7.应用层：TETP、FTP、NFS、WAIS  </li>
+<li><strong> TCP/IP四层</strong> （实际应用）<br>网络接口层<br>网际层IP<br>运输层（TCP或UDP）<br>应用层（应用层，表示层，会话层）（各种应用协议，如：TELNET，FTP，SMTP等）  </li>
+<li><strong> 五层协议的体系结构</strong> （为介绍网络原理设计）<br>1.物理层<br>2.数据链路层<br>3.网络层：使用<strong> IP</strong> 协议<br>4.运输层：负责向两个主机中进程之间的通信提供服务。协议：传输控制协议<strong> TCP</strong> ——面向连接的，数据传输的单位是报文段，用户数据协议<strong> UDP</strong> ——无连接，数据传输单位用户数据报<br>5.应用层：体系结构的最高层，直接为用户的应用进程提供服务。协议有：支持万维网应用的<strong> HTTP</strong> 协议，支持电子邮件的<strong> SMTP</strong> 协议，支持文件传送的<strong> FTP</strong> 协议</li>
+</ul>
+<p>ARP协议，地址解析协议，根据IP地址获取物理地址的一个TCP/IP协议，发送广播包broadcast</p>
+<h2 id="进程与线程"><a href="#进程与线程" class="headerlink" title="进程与线程  "></a>进程与线程  </h2><p>一个程序至少有一个进程，一个进程至少有一个线程<br><strong> 进程</strong> 资源拥有的基本单位，在执行过程中拥有独立的内存单元<br><strong> 线程</strong> 调度和分派的基本单位，多个线程共享内存，极大提高了程序的运行效率，只拥有一点必不可少的资源，不拥有系统资源，可以访问隶属进程的资源，即，一个进程所拥有的资源可供它的所有线程共享<br>两者均可并发执行，从而能够有效地使用多个资源和提高系统吞吐量  </p>
+<h2 id="IP地址"><a href="#IP地址" class="headerlink" title="IP地址"></a>IP地址</h2><p>IP地址也称为软件地址，存储在计算机的存储器上，IPv4为32位，IPv6为128位<br>IP地址分类：<br>IP地址={&lt;网络号&gt; , &lt;主机号&gt;}<br>A类地址：0.0.0.0 ~ 127.0.0.0    默认子网掩码：255.0.0.0<br>B类地址：128.0.0.0 ~ 191.255.0.0    默认子网掩码：255.255.0.0<br>C类地址：192.0.0.0 ~ 223.255.255.0      默认子网掩码：255.255.255.0<br>划分子网后IP地址：<br>IP地址={&lt;网络号&gt; , &lt;子网号&gt; , &lt;主机号&gt;}<br>不管网络有没有划分子网，子网掩码与IP地址按位”与”运算即可得网络地址。</p>
+<p>TCP连接的端点叫<strong> 套接字</strong>（socket）: socket = (IP地址：端口号)  </p>
+<h2 id="TCP流量控制"><a href="#TCP流量控制" class="headerlink" title="TCP流量控制"></a>TCP流量控制</h2><p>流量控制是让发送方的发送频率不要太快，让接收方来得及接收。<br>利用<strong> 滑动窗口机制</strong>可以很方便地在TCP连接上实现对发送方的流量控制  </p>
+<h2 id="TCP拥塞控制"><a href="#TCP拥塞控制" class="headerlink" title="TCP拥塞控制"></a>TCP拥塞控制</h2><p>∑对资源的需求 &gt; 可用资源<br>进行拥塞控制的四种算法：慢开始、拥塞避免、快重传、快恢复</p>
+]]></content>
+      
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Hello World]]></title>
+      <url>/2016/11/25/hello-world/</url>
+      <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.<br><a id="more"></a>  </p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+]]></content>
+      
+        
+    </entry>
+    
+  
+  
+    
+    <entry>
+      <title><![CDATA[about]]></title>
+      <url>/about/index.html</url>
+      <content type="html"></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[tags]]></title>
+      <url>/tags/index.html</url>
+      <content type="html"></content>
+    </entry>
+    
+  
+</search>
